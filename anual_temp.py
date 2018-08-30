@@ -9,7 +9,8 @@ from decimal import Decimal
 
 pattern = re.compile(r'\s+(\d{4,4})\s{1,}([\d]+)\s{1,}([-\d.]+)[*]?\s{1,}([-\d.]+)[*]?')
 
-filename = 'oxford'
+filename = 'Ballypatrick_Forest'
+print('El archivo seleccionado es: {}'.format(filename))
 
 f = open("docs/" + filename + ".txt", 'r')
 f1 = open("res/" + filename + ".csv", "w+")
@@ -27,6 +28,12 @@ for line in f:
 	if res:
 		temp_year = res.group(1)
 		temp_month = res.group(2)
+		# if res.group(3) and res.group(4) == '0':
+		# 	print('Error')
+		# 	temp_max = 0
+		# 	temp_min = 0
+		# 	temp_avg = 0
+		# else:
 		temp_max = float(res.group(3))
 		temp_min = float(res.group(4))
 		temp_avg = (temp_max+temp_min)/2
